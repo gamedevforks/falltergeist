@@ -39,8 +39,8 @@ int main(int argc, char* argv[])
     {
         auto game = Game::Game::getInstance();
         game->init(std::unique_ptr<Settings>(new Settings()));
-        game->setState(new State::Start());
-        //game->setState(new State::LuaState("data/scripts/lua/state/mainmenu.lua"));
+        //game->setState(new State::Start());
+        game->setState(new State::LuaState("data/scripts/lua/state/mainmenu.lua"));
         game->run();
         game->shutdown();
         return 0;

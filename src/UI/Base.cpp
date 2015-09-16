@@ -258,8 +258,9 @@ void Base::handle(Event::Event* event)
                             newEvent->setName("mousedragstop");
                             emitEvent(newEvent);
                         }
-                        newEvent->setName("mouseleftclick");
-                        emitEvent(newEvent);
+                        _onLeftClick();
+                        //newEvent->setName("mouseleftclick");
+                        //emitEvent(newEvent);
                     }
                     _leftButtonPressed = false;
                 }
@@ -328,6 +329,13 @@ void Base::handle(Event::Event* event)
     {
         emitEvent(keyboardEvent);
     }
+}
+
+void Base::setOnLeftClick(luabridge::LuaRef handler)
+{
+    if (!handler.isFunction()) return;
+
+    _onLeftClick = handler;
 }
 
 }

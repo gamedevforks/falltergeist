@@ -24,6 +24,8 @@
 
 // Falltergeist includes
 #include "../Event/Emitter.h"
+#include "../Event/Handler.h"
+#include "../Lua/Script.h"
 #include "../Point.h"
 
 // Third party includes
@@ -73,20 +75,26 @@ public:
     virtual unsigned int pixel(const Point& pos);
     unsigned int pixel(unsigned int x, int unsigned y);
 
+    void setOnLeftClick(luabridge::LuaRef handler);
+
 protected:
     Point _position;
     Point _offset;
 
-    Graphics::Texture* _texture = 0;
-    Graphics::Texture* _tmptex = 0;
+    Graphics::Texture* _texture = nullptr;
+    Graphics::Texture* _tmptex = nullptr;
+
     bool _leftButtonPressed = false;
     bool _rightButtonPressed = false;
     bool _drag = false;
     bool _hovered = false;
     bool _visible = true;
+
     // @todo Should it really be here?
     std::string _downSound = "";
     std::string _upSound = "";
+
+    Event::Handler _onLeftClick;
 };
 
 }

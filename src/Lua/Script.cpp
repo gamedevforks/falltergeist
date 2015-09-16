@@ -116,6 +116,7 @@ void Script::_initialize()
                 // game.ui.UI
                 .beginClass<Falltergeist::UI::Base>("UI")
                     .addProperty("position", &UI::Base::position, &UI::Base::setPosition)
+                    .addFunction("setOnLeftClick", &UI::Base::setOnLeftClick)
                 .endClass()
 
                 // game.ui.Image

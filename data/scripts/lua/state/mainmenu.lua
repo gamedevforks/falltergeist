@@ -33,13 +33,19 @@ init = function(state)
     creditsButton  = game.ui.ImageButton(enum.BUTTON_TYPE.MENU_RED_CIRCLE, 30, 19 + 41*4);
     exitButton     = game.ui.ImageButton(enum.BUTTON_TYPE.MENU_RED_CIRCLE, 30, 19 + 41*5);
 
+    local onClick = function()
+        print('test')
+    end
+
+    introButton:setOnLeftClick(onClick)
+
     -- Labels
     --font = game.resourceManager.getFont("font4.aaf", 0xb89c28ff)
 
-    introLabel = game.ui.TextArea(game.translate("intro", "mainmenu"), 50, 20)
+    --introLabel = game.ui.TextArea(game.translate("intro", "mainmenu"), 50, 20)
     --introLabel.font = font
-    introLabel.width = 150
-    introLabel.horizontalAlign = enum.TEXT_ALIGN.CENTER
+   -- introLabel.width = 150
+    --introLabel.horizontalAlign = enum.TEXT_ALIGN.CENTER
 
 
     state:addUI(background)
@@ -50,7 +56,7 @@ init = function(state)
     state:addUI(creditsButton)
     state:addUI(exitButton)
 
-    state:addUI(introLabel)
+    --state:addUI(introLabel)
 
 end
 
